@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create a New Game</h1>
+
+<form action="/new_game" method="POST">
+    <div class="form-group">
+        <label for="username">Enter your Username:</label>
+        <input type="text" id="username" name="username" placeholder="Your Name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="level">Select Difficulty:</label>
+        <div class="difficulty-options">
+            <input type="radio" id="beginner" name="level" value="Beginner">
+            <label for="beginner">Beginner</label>
+
+            <input type="radio" id="easy" name="level" value="Easy">
+            <label for="easy">Easy</label>
+
+            <input type="radio" id="medium" name="level" value="Medium">
+            <label for="medium">Medium</label>
+
+            <input type="radio" id="hard" name="level" value="Hard">
+            <label for="hard">Hard</label>
+
+            <input type="radio" id="expert" name="level" value="Expert">
+            <label for="expert">Expert</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Start Game">
+    </div>
+</form>
+{% endblock %}

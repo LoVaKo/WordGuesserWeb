@@ -1,0 +1,96 @@
+{
+    "Beginner": [
+        {
+            "name": "MsPacman",
+            "date": "01-09-23",
+            "pf_ratio": "0.5",
+            "time_spent": "0:12:10.0"
+        },
+        {
+            "name": "PacMan",
+            "date": "04-10-24",
+            "pf_ratio": "0.4",
+            "time_spent": "0:03:44.0"
+        },
+        {
+            "name": "DonkeyKong",
+            "date": "12-05-22",
+            "pf_ratio": "0.3",
+            "time_spent": "0:04:20.0"
+        },
+        {
+            "name": "Asteroids",
+            "date": "11-02-20",
+            "pf_ratio": "0.3",
+            "time_spent": "0:10:30.0"
+        },
+        {
+            "name": "SpaceInvader",
+            "date": "08-08-21",
+            "pf_ratio": "0.3",
+            "time_spent": "0:06:15.0"
+        }
+    ],
+    "Easy": [
+        {
+            "name": "Galaga",
+            "date": "09-06-24",
+            "pf_ratio": "0.8",
+            "time_spent": "0:15:00.0"
+        },
+        {
+            "name": "DigDug",
+            "date": "07-02-23",
+            "pf_ratio": "0.6",
+            "time_spent": "0:18:20.0"
+        },
+        {
+            "name": "Frogger",
+            "date": "01-11-22",
+            "pf_ratio": "0.4",
+            "time_spent": "0:09:45.0"
+        }
+    ],
+    "Medium": [
+        {
+            "name": "BubbleBobble",
+            "date": "02-04-23",
+            "pf_ratio": "0.5",
+            "time_spent": "0:20:30.0"
+        },
+        {
+            "name": "Contra",
+            "date": "08-08-22",
+            "pf_ratio": "0.4",
+            "time_spent": "0:30:00.0"
+        }
+    ],
+    "Hard": [
+        {
+            "name": "Metroid",
+            "date": "10-05-22",
+            "pf_ratio": "0.6",
+            "time_spent": "0:50:15.0"
+        }
+    ],
+    "Expert": [
+        {
+            "name": "Zelda",
+            "date": "03-09-24",
+            "pf_ratio": "0.7",
+            "time_spent": "1:00:00.0"
+        },
+        {
+            "name": "Tetris",
+            "date": "05-04-21",
+            "pf_ratio": "0.5",
+            "time_spent": "1:30:20.0"
+        },
+        {
+            "name": "Lotte",
+            "date": "08-10-24",
+            "pf_ratio": "0.7",
+            "time_spent": "0:07:59.7"
+        }
+    ]
+}

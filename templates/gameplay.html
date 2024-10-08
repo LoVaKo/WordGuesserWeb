@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="main_layout">
+    <div id="game_info">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                    <td>{{ game.player.name }}</td>
+                </tr>
+                <tr>
+                    <td>Level</td>
+                    <td>{{ game.level }}</td>
+                </tr>
+                <tr>
+                    <td>Current Round</td>
+                    <td>{{ game.round_counter }}</td>
+                </tr>
+                <tr>
+                    <td>Wins</td>
+                    <td>{{ game.player.points }}</td>
+                </tr>
+                <tr>
+                    <td>Fails</td>
+                    <td>{{ game.player.fails }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="secret_word">
+        <table>
+            <tr>
+                {% for letter in game.round_object.board %}
+                <td class="board_tile">
+                    {{ letter }}
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+
+    <div id="round_info">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Remaining Tries</td>
+                    <td>{{ game.round_object.tries }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div id="keyboard">
+    <form action="\guess_letter" method="POST">
+        <div>
+            {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
+            {% if letter in game.round_object.guessed_letters %}
+            <button class="disabled" type="submit" name="letter" value="{{ letter }}" disabled>{{ letter }}</button>
+            {% else %}
+            <button type="submit" name="letter" value="{{ letter }}">{{ letter }}</button>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </form>
+</div>
+{% endblock %}

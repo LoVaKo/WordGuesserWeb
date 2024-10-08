@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for level, player_scores in highscore.items() %}
+    <h2>{{ level.upper() }}</h2>
+    
+    {% if player_scores %}
+        <table>
+            <thead>
+                <tr>
+                    {% for field in player_scores[0].keys() %}
+                        <th>{{ field.upper() }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in player_scores %}
+                    <tr>
+                        {% for value in score.values() %}
+                            {% if score == highlight %}
+                                <td class="highlight">{{ value }}</td>
+                            {% else %}
+                                <td>{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No scores available for this level.</p>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

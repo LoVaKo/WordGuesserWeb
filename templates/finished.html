@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Game finished!</h1>
+<table>
+    <thead>
+        <td>Username</td>
+        <td>Date</td>
+        <td>Point/Fail ratio</td>
+        <td>Time spent</td>
+        <td>Level</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ game.player_score.name }}</td>
+            <td>{{ game.player_score.date }}</td>
+            <td>{{ game.player_score.pf_ratio }}</td>
+            <td>{{ game.player_score.time_spent }}</td>
+            <td>{{ game.player_score.level }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<form action="\highscore" method="POST">
+    <label for="highscore">Save to highscore?</label>
+    <button id="highscore" name="highscore" type="submit" value="yes">YES</button>
+    <button id="highscore" name="highscore" type="submit" value="no">NO</button>
+</form>
+{% endblock %}

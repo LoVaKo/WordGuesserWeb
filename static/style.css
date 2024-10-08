@@ -1,0 +1,317 @@
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #f4f1f1; 
+    color: #6d6d6d; 
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #5f5f5f; 
+    margin-bottom: 20px;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #e0d9d9; 
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #b0a1a1; 
+}
+
+/* Hover effect */
+nav ul li a:hover {
+    background-color: #d0b0b0; 
+    color: #5f5f5f; 
+}
+
+/* Main content area */
+main {
+    max-width: fit-content;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Content page styling */
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #5f5f5f;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #6d6d6d;
+}
+
+ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* General form styling */
+form {
+    background-color: #f4f1f1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #5f5f5f;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #5f5f5f;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #d1c4c4; 
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.difficulty-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="radio"] + label {
+    margin-right: 20px;
+}
+
+input[type="submit"] {
+    background-color: #b0a1a1; 
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #d0b0b0; 
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    table-layout: auto; 
+}
+
+thead {
+    background-color: #b0a1a1; 
+    color: #fff;
+}
+
+thead th {
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+    width: 25%; 
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word; 
+}
+
+/* Adjust width on smaller screens */
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+        max-width: 100%;
+    }
+    thead th {
+        font-size: 14px; 
+        padding: 10px;
+    }
+    tbody td {
+        padding: 10px;
+        font-size: 14px; 
+    }
+}
+
+
+/* Highlighted Row Styling */
+td.highlight {
+    background-color: #e7e3a1; 
+    font-weight: bold;
+}
+
+/* Layout container for the three sections */
+#main_layout {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+/* These are the styles for the 3 sections */
+#round_info,
+#secret_word,
+#game_info {
+    background-color: #fff;
+    padding: 20px;
+    font-size: 14px;
+    align-self: flex-end;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#round_info {
+    flex: 1;
+    max-width: 250px; 
+}
+
+#game_info {
+    flex: 1;
+    max-width: 250px; 
+}
+
+#secret_word {
+    flex: 2; 
+    text-align: center;
+    max-width: 500px; 
+    flex-grow: 2;
+    padding: 20px;
+    margin: 0 auto; 
+    font-size: 36px; 
+    font-weight: bold;
+    letter-spacing: 10px; 
+}
+
+#secret_word span {
+    display: inline-block;
+    text-transform: uppercase; 
+    font-size: 48px; 
+    border: 2px solid #d1c4c4; 
+    padding: 10px;
+    margin: 0 5px; 
+    border-radius: 5px; 
+    background-color: #fff; 
+}
+
+/* Keyboard styles */
+#keyboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#keyboard div {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); 
+    gap: 5px; 
+    width: 100%;
+    max-width: 700px; 
+}
+
+#keyboard button {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b0a1a1; 
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#keyboard button:hover {
+    background-color: #d0b0b0; 
+}
+
+#keyboard button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #main_layout {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 10px;
+    }
+
+    #round_info, #secret_word, #game_info {
+        max-width: 100%; 
+    }
+}
