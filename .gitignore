@@ -9,6 +9,3 @@ venv/
 # Flask
 instance/
 *.db
-
-# System
-.DS_Store
