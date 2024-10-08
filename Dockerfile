@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 #  Installing python and pip
-RUN RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache python3 py3-pip
 
 #  Copying all files to working directory called app
 WORKDIR /app
