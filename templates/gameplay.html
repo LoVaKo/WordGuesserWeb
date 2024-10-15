@@ -31,7 +31,7 @@
     <div id="secret_word">
         <table>
             <tr>
-                {% for letter in game.round_object.board %}
+                {% for letter in game.round.board %}
                 <td class="board_tile">
                     {{ letter }}
                 </td>
@@ -45,7 +45,7 @@
             <tbody>
                 <tr>
                     <td>Remaining Tries</td>
-                    <td>{{ game.round_object.tries }}</td>
+                    <td>{{ game.round.tries }}</td>
                 </tr>
             </tbody>
         </table>
@@ -57,7 +57,7 @@
     <form action="\guess_letter" method="POST">
         <div>
             {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
-            {% if letter in game.round_object.guessed_letters %}
+            {% if letter in game.round.guessed_letters %}
             <button class="disabled" type="submit" name="letter" value="{{ letter }}" disabled>{{ letter }}</button>
             {% else %}
             <button type="submit" name="letter" value="{{ letter }}">{{ letter }}</button>

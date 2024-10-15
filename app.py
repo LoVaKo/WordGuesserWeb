@@ -22,10 +22,7 @@ from flask import Flask, render_template, request, session
 from flask_session import Session
 import redis
 import pickle
-from controllers.player import Player
-from controllers.game import Game
-from controllers.highscore_utils import load_highscore, add_player_score
-
+from game_logic import Player, Game, load_highscore, add_player_score
 
 app = Flask(__name__)
 
@@ -104,9 +101,9 @@ def gameplay():
     letter = request.form.get("letter")
 
     if letter:
-        game.round_object.update(letter)
-        game.round_object.check_for_end()
-        if game.round_object.game_over is False:
+        game.round.update(letter)
+        game.round.check_for_end()
+        if game.round.game_over is False:
             serialize_game(game)
             return render_template("gameplay.html", game=game)
 

@@ -11,7 +11,7 @@ Functions:
     - set_player_score(self, player_score): Stores player score
     - new_round(self): Initializes new Round and increases the counter.
 '''
-from game_logic import Round
+from .round import Round
 
 class Game:
     
