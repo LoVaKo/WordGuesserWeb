@@ -2,13 +2,13 @@
 Highscore utilities for wordguesser.
 
 Variables:
-    - HIGHSCORE_PATH: Provides path to highscore.json
+    - _HIGHSCORE_PATH: Provides path to highscore.json
 
 Functions:
-    - sort_scores(scores): Sorts given scores from highest to lowest.
+    - _sort_scores(scores): Sorts given scores from highest to lowest.
     - load_highscore(): Loads highscore.json as a dict
-    - update_highscore(highscore): writes altered data back to highscore.json
-    - is_new_highscore(existing_score, new_score): Compares player scores and 
+    - _update_highscore(highscore): writes altered data back to highscore.json
+    - _is_new_highscore(existing_score, new_score): Compares player scores and 
       determines if the newer score is a highscore. 
     - add_score(score): If the score is the first or better for
       this player at this level, adds the level to the highscore data.
@@ -18,10 +18,10 @@ import json
 from os import path
 
 
-HIGHSCORE_PATH = path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
+_HIGHSCORE_PATH = path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
 
 
-def sort_scores(scores):
+def _sort_scores(scores):
     '''
     Sorts scores from highest to lowest.
     - First sorts by time_elapsed (second criterium)
@@ -43,22 +43,22 @@ def sort_scores(scores):
 
 
 def load_highscore():
-    with open(HIGHSCORE_PATH, "r") as f:
+    with open(_HIGHSCORE_PATH, "r") as f:
         highscore = json.load(f)
     
     #  Sort highscores before returning
     for level, scores in highscore.items():
-        highscore[level] = sort_scores(scores)
+        highscore[level] = _sort_scores(scores)
 
     return highscore
 
 
-def update_highscore(highscore):
-    with open(HIGHSCORE_PATH, "w") as f:
+def _update_highscore(highscore):
+    with open(_HIGHSCORE_PATH, "w") as f:
         json.dump(highscore, f, indent=4)
 
 
-def is_new_highscore(existing_score, new_score):
+def _is_new_highscore(existing_score, new_score):
     '''
     Compare two player scores and determine if the newer score is a highscore.
 
@@ -93,14 +93,14 @@ def add_score(score):
     for existing_score in highscore[level]:
         if existing_score["name"] == name:
             old_score = existing_score
-            is_personal_highscore = is_new_highscore(existing_score, score)
+            is_personal_highscore = _is_new_highscore(existing_score, score)
             break
 
     if is_personal_highscore:
         highscore[level].append(score)
         if old_score != None:
             highscore[level].remove(old_score)
-        update_highscore(highscore)
+        _update_highscore(highscore)
 
 
 
