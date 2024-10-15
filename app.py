@@ -22,7 +22,7 @@ from flask import Flask, render_template, request, session
 from flask_session import Session
 import redis
 import pickle
-from game_logic import Player, Game, load_highscore, add_player_score
+from game_logic import Player, Game, load_highscore, add_score
 
 app = Flask(__name__)
 
@@ -78,8 +78,8 @@ def highscore():
         add_to_highscore = request.form.get("highscore")
         if add_to_highscore == "yes":
             game = deserialize_game()
-            player_score = game.player_score
-            add_player_score(player_score)
+            score = game.score
+            add_score(score)
             serialize_game(game)
 
     highscore = load_highscore()
@@ -112,8 +112,8 @@ def gameplay():
         serialize_game(game)
         return render_template("gameplay.html", game=game)
     
-    player_score = game.player.wrap_up()
-    game.set_player_score(player_score)
+    score = game.player.wrap_up()
+    game.set_score(score)
     serialize_game(game)
 
     return render_template("finished.html", game=game)

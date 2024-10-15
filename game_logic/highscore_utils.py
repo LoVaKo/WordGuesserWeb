@@ -8,7 +8,7 @@ Functions:
     - update_highscore(highscore): writes altered data back to highscore.json
     - compare_scores(existing_score, new_score): Compares player scores and 
       determines if the newer score is a highscore. 
-    - add_player_score(player_score): If the score is the first or better for
+    - add_score(score): If the score is the first or better for
       this player at this level, adds the level to the highscore data.
 '''
 
@@ -77,7 +77,7 @@ def compare_scores(existing_score, new_score):
     return new_score['pf_ratio'] > existing_score['pf_ratio']
 
     
-def add_player_score(player_score):
+def add_score(score):
     '''
     Formats player score and checks if it needs to be added to highscore data.
     - if a player already has a score at this level, the score is replaced if
@@ -85,19 +85,19 @@ def add_player_score(player_score):
     - if it's the first score for this player at this level, the score is added.
     '''
     highscore = load_highscore()
-    level = player_score.pop("level")
-    name = player_score["name"]
+    level = score.pop("level")
+    name = score["name"]
     is_personal_highscore = True
     old_score = None
 
     for existing_score in highscore[level]:
         if existing_score["name"] == name:
             old_score = existing_score
-            is_personal_highscore = compare_scores(existing_score, player_score)
+            is_personal_highscore = compare_scores(existing_score, score)
             break
 
     if is_personal_highscore:
-        highscore[level].append(player_score)
+        highscore[level].append(score)
         if old_score != None:
             highscore[level].remove(old_score)
         update_highscore(highscore)

@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for level, player_scores in highscore.items() %}
+{% for level, scores in highscore.items() %}
     <h2>{{ level.upper() }}</h2>
     
-    {% if player_scores %}
+    {% if scores %}
         <table>
             <thead>
                 <tr>
-                    {% for field in player_scores[0].keys() %}
+                    {% for field in scores[0].keys() %}
                         <th>{{ field.upper() }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for score in player_scores %}
+                {% for score in scores %}
                     <tr>
                         {% for value in score.values() %}
                             {% if score == highlight %}

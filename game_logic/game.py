@@ -8,7 +8,7 @@ Class Game:
 
 Functions:
     - __init__(self, player): Initializes new game for given player.
-    - set_player_score(self, player_score): Stores player score
+    - set_score(self, score): Stores player score
     - new_round(self): Initializes new Round and increases the counter.
 '''
 from .round import Round
@@ -19,11 +19,11 @@ class Game:
         self.player = player
         self.level = level
         self.round_counter = 0
-        self.player_score = None
+        self.score = None
         self.round = None
         
-    def set_player_score(self, player_score):
-        self.player_score = player_score
+    def set_score(self, score):
+        self.score = score
 
     def new_round(self):
             self.round = Round(self.player, self.level)
