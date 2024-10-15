@@ -5,7 +5,7 @@ Variables:
     - _possible_words: List of seven letter words
 
 Functions:
-    - generate_random_word(): Function that picks a random word from the list.
+    - _generate_random_word(): Function that picks a random word from the list.
 class Round:
     - Initialized with player and level
     - Level determines number of tries.
@@ -46,7 +46,7 @@ _possible_words = [
         ]
 
 
-def generate_random_word():
+def _generate_random_word():
     random_number = rd.randint(0, 99)
     return _possible_words[random_number]
 
@@ -54,7 +54,7 @@ def generate_random_word():
 class Round:
     
     def __init__(self, player, level):
-        self.word = Round.generate_random_word()
+        self.word = Round._generate_random_word()
         self.board = ['_', '_', '_', '_', '_', '_', '_']
         self.guessed_letters = []
         self.game_over = False
