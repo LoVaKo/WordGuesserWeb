@@ -1,6 +1,11 @@
 '''
 Round module for wordguesser.
 
+Variables:
+    - _possible_words: List of seven letter words
+
+Functions:
+    - generate_random_word(): Function that picks a random word from the list.
 class Round:
     - Initialized with player and level
     - Level determines number of tries.
@@ -9,19 +14,15 @@ class Round:
         - All letters of the word have been guessed.
     - When the round ends the player stats are updated.
 
-Functions:
-    - set_random_word(): Static method that picks a random 7 character word.
+Methods:
+
     - __init__(self, player, level): Initializes a new round.
     - check_for_end(self): Checks for end of round conditions.
     - update(self, guess): Updates the gameboard or number of tries.
 '''
 import random as rd
 
-class Round:
-
-    @staticmethod
-    def set_random_word():
-        possible_words = [
+_possible_words = [
             "abandon", "baggage", "cabinet", "dancing", "passion",
             "fantasy", "giraffe", "harmony", "imagery", "jackets",
             "kitchen", "languid", "magical", "narrate", "octopus",
@@ -43,11 +44,17 @@ class Round:
             "network", "orchids", "plastic", "quality", "remorse",
             "service", "tangent", "updates", "vibrate", "whistle"
         ]
-        random_number = rd.randint(0, 99)
-        return possible_words[random_number]
+
+
+def generate_random_word():
+    random_number = rd.randint(0, 99)
+    return _possible_words[random_number]
+
+
+class Round:
     
     def __init__(self, player, level):
-        self.word = Round.set_random_word()
+        self.word = Round.generate_random_word()
         self.board = ['_', '_', '_', '_', '_', '_', '_']
         self.guessed_letters = []
         self.game_over = False

@@ -1,9 +1,11 @@
 '''
 Highscore utilities for wordguesser.
 
+Variables:
+    - HIGHSCORE_PATH: Provides path to highscore.json
+
 Functions:
     - sort_scores(scores): Sorts given scores from highest to lowest.
-    - HIGHSCORE_PATH: Provides path to highscore.json
     - load_highscore(): Loads highscore.json as a dict
     - update_highscore(highscore): writes altered data back to highscore.json
     - is_new_highscore(existing_score, new_score): Compares player scores and 
@@ -14,6 +16,10 @@ Functions:
 
 import json
 from os import path
+
+
+HIGHSCORE_PATH = path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
+
 
 def sort_scores(scores):
     '''
@@ -36,13 +42,8 @@ def sort_scores(scores):
     return scores_by_points
 
 
-def HIGHSCORE_PATH:
-    return path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
-
-
 def load_highscore():
-    highscore_path = HIGHSCORE_PATH
-    with open(highscore_path, "r") as f:
+    with open(HIGHSCORE_PATH, "r") as f:
         highscore = json.load(f)
     
     #  Sort highscores before returning
@@ -53,8 +54,7 @@ def load_highscore():
 
 
 def update_highscore(highscore):
-    highscore_path = HIGHSCORE_PATH
-    with open(highscore_path, "w") as f:
+    with open(HIGHSCORE_PATH, "w") as f:
         json.dump(highscore, f, indent=4)
 
 
