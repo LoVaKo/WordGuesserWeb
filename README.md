@@ -10,11 +10,16 @@
    ```bash
    cd WordGuesserWeb
    ```
-3. Install dependencies:
+3. Install and activate virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-4. Run the app:
+5. Run the app:
    ```bash
    python3 app.py
    ```
