@@ -3,17 +3,17 @@ Highscore utilities for wordguesser.
 
 Functions:
     - sort_scores(scores): Sorts given scores from highest to lowest.
-    - get_highscore_path(): Provides path to highscore.json
+    - HIGHSCORE_PATH: Provides path to highscore.json
     - load_highscore(): Loads highscore.json as a dict
     - update_highscore(highscore): writes altered data back to highscore.json
-    - compare_scores(existing_score, new_score): Compares player scores and 
+    - is_new_highscore(existing_score, new_score): Compares player scores and 
       determines if the newer score is a highscore. 
     - add_score(score): If the score is the first or better for
       this player at this level, adds the level to the highscore data.
 '''
 
 import json
-import os
+from os import path
 
 def sort_scores(scores):
     '''
@@ -36,13 +36,13 @@ def sort_scores(scores):
     return scores_by_points
 
 
-def get_highscore_path():
-    return os.path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
+def HIGHSCORE_PATH:
+    return path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
 
 
 def load_highscore():
-    path = get_highscore_path()
-    with open(path, "r") as f:
+    highscore_path = HIGHSCORE_PATH
+    with open(highscore_path, "r") as f:
         highscore = json.load(f)
     
     #  Sort highscores before returning
@@ -53,12 +53,12 @@ def load_highscore():
 
 
 def update_highscore(highscore):
-    path = get_highscore_path()
-    with open(path, "w") as f:
+    highscore_path = HIGHSCORE_PATH
+    with open(highscore_path, "w") as f:
         json.dump(highscore, f, indent=4)
 
 
-def compare_scores(existing_score, new_score):
+def is_new_highscore(existing_score, new_score):
     '''
     Compare two player scores and determine if the newer score is a highscore.
 
@@ -93,7 +93,7 @@ def add_score(score):
     for existing_score in highscore[level]:
         if existing_score["name"] == name:
             old_score = existing_score
-            is_personal_highscore = compare_scores(existing_score, score)
+            is_personal_highscore = is_new_highscore(existing_score, score)
             break
 
     if is_personal_highscore:
