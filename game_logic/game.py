@@ -12,17 +12,18 @@ Functions:
     - new_round(self): Initializes new Round and increases the counter.
 '''
 from .round import Round
+from .player import Player
 
 class Game:
     
-    def __init__(self, player, level):
+    def __init__(self, player: Player, level: str):
         self.player = player
         self.level = level
         self.round_counter = 0
         self.score = None
         self.round = None
         
-    def set_score(self, score):
+    def set_score(self, score: dict):
         self.score = score
 
     def new_round(self):

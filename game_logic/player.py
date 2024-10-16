@@ -49,19 +49,18 @@ class Player:
     def _format_date(self):
         self.date = self.date.strftime('%d-%m-%y')
     
-    def _format_player_stats(self):
+    def _format_player_stats(self) -> dict:
         '''
         - Create a dictionary from the player instance attributes.
         - Remove redundant information (points and fails since there is a
           point/fail ratio included).
-        - Return dict.
         '''
         player_stats = vars(self)
         player_stats.pop('points')
         player_stats.pop('fails')
         return player_stats
 
-    def wrap_up(self):
+    def wrap_up(self) -> dict:
         self._calculate_pf_ratio()
         self._calculate_time_spent()
         self._format_date()

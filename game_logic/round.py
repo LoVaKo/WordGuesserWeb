@@ -6,6 +6,7 @@ Variables:
 
 Functions:
     - generate_random_word(): Function that picks a random word from the list.
+
 class Round:
     - Initialized with player and level
     - Level determines number of tries.
@@ -21,6 +22,7 @@ Methods:
     - update(self, guess): Updates the gameboard or number of tries.
 '''
 import random as rd
+from .player import Player
 
 _possible_words = [
             "abandon", "baggage", "cabinet", "dancing", "passion",
@@ -53,7 +55,7 @@ def generate_random_word():
 
 class Round:
     
-    def __init__(self, player, level):
+    def __init__(self, player: Player, level: str):
         self._word = Round.generate_random_word()
         self.board = ['_', '_', '_', '_', '_', '_', '_']
         self.guessed_letters = []
@@ -76,7 +78,7 @@ class Round:
             self.game_over = True
             self.player.add_point()
     
-    def update(self, guess):
+    def update(self, guess: str):
         self.guessed_letters.append(guess)
 
         if guess not in self._word:

@@ -21,7 +21,7 @@ from os import path
 _HIGHSCORE_PATH = path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
 
 
-def _sort_scores(scores):
+def _sort_scores(scores: dict) -> dict:
     '''
     Sorts scores from highest to lowest.
     - First sorts by time_elapsed (second criterium)
@@ -42,7 +42,7 @@ def _sort_scores(scores):
     return scores_by_points
 
 
-def load_highscore():
+def load_highscore() -> dict:
     with open(_HIGHSCORE_PATH, "r") as f:
         highscore = json.load(f)
     
@@ -53,12 +53,12 @@ def load_highscore():
     return highscore
 
 
-def _update_highscore(highscore):
+def _update_highscore(highscore: dict):
     with open(_HIGHSCORE_PATH, "w") as f:
         json.dump(highscore, f, indent=4)
 
 
-def _is_new_highscore(existing_score, new_score):
+def _is_new_highscore(existing_score: dict, new_score: dict) -> bool:
     '''
     Compare two player scores and determine if the newer score is a highscore.
 
@@ -67,8 +67,6 @@ def _is_new_highscore(existing_score, new_score):
     - when pf_ratio is equal, time_spent must be lower than the existing score
     - when time_spent is also equal, the earlier date remains highscore so the 
       function returns False.
-    
-    Returns boolean value.
     '''
     if new_score['pf_ratio'] == existing_score['pf_ratio']:
         if new_score['time_spent'] == existing_score['time_spent']:
@@ -77,7 +75,7 @@ def _is_new_highscore(existing_score, new_score):
     return new_score['pf_ratio'] > existing_score['pf_ratio']
 
     
-def add_score(score):
+def add_score(score: dict):
     '''
     Formats player score and checks if it needs to be added to highscore data.
     - if a player already has a score at this level, the score is replaced if
