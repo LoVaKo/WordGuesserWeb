@@ -56,7 +56,7 @@ def generate_random_word():
 class Round:
     
     def __init__(self, player: Player, level: str):
-        self._word = Round.generate_random_word()
+        self._word = generate_random_word()
         self.board = ['_', '_', '_', '_', '_', '_', '_']
         self.guessed_letters = []
         self.game_over = False

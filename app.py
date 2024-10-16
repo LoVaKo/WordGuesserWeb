@@ -39,7 +39,7 @@ def deserialize_game():
     return pickle.loads(game_state)
 
 
-def serialize_game(game):
+def serialize_game(game: Game):
     session["game_state"] = pickle.dumps(game)
 
 
