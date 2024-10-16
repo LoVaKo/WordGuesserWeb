@@ -18,7 +18,7 @@ import json
 from os import path
 
 
-_HIGHSCORE_PATH = path.join(os.path.dirname(__file__), "..", "data", "highscore.json")
+_HIGHSCORE_PATH = path.join(path.dirname(__file__), "..", "data", "highscore.json")
 
 
 def _sort_scores(scores: dict) -> dict:
